@@ -44,6 +44,13 @@ tasks:
       curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
       curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
       gp sync-await apt-get && sudo apt-get update && sudo apt-get install google-cloud-cli terraform 
+  
+  - name: NodeJS
+    init: |
+      gp env PATH="$(yarn global bin):$PATH"
+      yarn upgrade yarn@latest
+      yarn global add nx
+      
       
 # Ports to expose on workspace startup
 ports:
