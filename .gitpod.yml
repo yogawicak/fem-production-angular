@@ -26,8 +26,7 @@ tasks:
       mkdir -p $ANDROID_HOME
       chmod -R 777 $ANDROID_HOME
       cd $ANDROID_HOME && echo $PWD && wget $ANDROID_TOOLS_URL && unzip -q *.zip -d $ANDROID_HOME && rm *.zip && echo $PWD
-#      cd $ANDROID_HOME && echo $PWD && wget $ANDROID_TOOLS_URL && unzip -q *.zip -d $ANDROID_HOME && rm *.zip && echo $PWD
-#      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "build-tools;${ANDROID_BUILD_TOOLS}"
+      yes | sdkmanager --sdk_root=$ANDROID_HOME --install "build-tools;${ANDROID_BUILD_TOOLS}"
 #      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platforms;android-${ANDROID_API_VERSION}"
 #      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools"
 #      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "extras;android;m2repository"
