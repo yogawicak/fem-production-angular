@@ -12,6 +12,7 @@ tasks:
       gnupg software-properties-common curl
       sudo rm -rf /var/lib/apt/lists/*
       sudo apt-get clean -qq
+      gp sync-done sudo apt-get
       echo "Tathir INIT"
     command: |
       yes | sdk install java 8.0.332-zulu
@@ -40,13 +41,13 @@ tasks:
     init: |
       echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
       curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
-      sudo apt-get update && sudo apt-get install google-cloud-cli
+      gp sync-await sudo apt-get && sudo apt-get update && sudo apt-get install google-cloud-cli
   
   - name: Terraform
     init: |
       curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
       sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-      sudo apt-get update && sudo apt-get install terraform   
+      gp sync-await sudo apt-get && sudo apt-get update && sudo apt-get install terraform   
 
 # Ports to expose on workspace startup
 ports:
