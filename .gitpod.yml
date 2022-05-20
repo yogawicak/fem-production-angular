@@ -1,0 +1,15 @@
+image: gitpod/workspace-full-vnc:latest
+# Ports to expose on workspace startup
+ports:
+  - port: 8000
+    # onOpen: open-preview
+
+vscode:
+  extensions:
+    - ms-azuretools.vscode-docker
+    - CoenraadS.bracket-pair-colorizer
+    - vscodevim.vim
+    - eamodio.gitlens
+    - christian-kohler.npm-intellisense
+    - esbenp.prettier-vscode
+    - Angular.ng-template
