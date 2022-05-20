@@ -1,4 +1,10 @@
 image: gitpod/workspace-full-vnc:latest
+tasks:
+  - name: Ionic Development Platform
+    init: |
+      sudo apt-get --quiet update --yes
+      echo "Tathir"
+
 # Ports to expose on workspace startup
 ports:
   - port: 8000
