@@ -53,9 +53,8 @@ tasks:
     init: |
       curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
       npm install -g npm@8.10.0
-    command: |
-      yarn global add nx
-      nx --version
+    # yarn global add nx
+    # nx --version
       
       
       
