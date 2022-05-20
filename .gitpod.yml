@@ -1,7 +1,7 @@
 image: gitpod/workspace-full-vnc:latest
 tasks:
-  - name: Setup X11
-    init: |
+  - name: Setup Container
+    init: >
       sudo apt-get --quiet update --yes
       sudo apt-get --quiet install --yes wget apt-utils tar zip unzip lib32stdc++6 lib32z1 build-essential ruby ruby-dev
       sudo apt-get --quiet install --yes vim-common
@@ -9,8 +9,10 @@ tasks:
       sudo apt-get --quiet install --yes chromium-browser
       sudo rm -rf /var/lib/apt/lists/*
       sudo apt-get clean -qq
+      curl -s "https://get.sdkman.io" | bash
       echo "Tathir"
-
+    command: >
+      source "$HOME/.sdkman/bin/sdkman-init.sh"
 # Ports to expose on workspace startup
 ports:
   - port: 8000
