@@ -9,9 +9,10 @@ tasks:
       sudo apt-get --quiet install --yes chromium-browser
       sudo rm -rf /var/lib/apt/lists/*
       sudo apt-get clean -qq
-      curl -s "https://get.sdkman.io" | bash
-      echo "Tathir"
-    command: source "$HOME/.sdkman/bin/sdkman-init.sh"
+      echo "Tathir INIT"
+    command: |
+      sdk install java 8.0.332-zulu
+      echo "Tathir COMMAND"
 # Ports to expose on workspace startup
 ports:
   - port: 8000
