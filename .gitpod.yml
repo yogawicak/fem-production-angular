@@ -1,6 +1,6 @@
 image: gitpod/workspace-full-vnc:latest
 tasks:
-  - name: Setup Container
+  - name: Container
     init: |
       sudo apt-get --quiet update --yes
       sudo apt-get --quiet install --yes wget apt-utils tar zip unzip lib32stdc++6 lib32z1 build-essential ruby ruby-dev
@@ -14,7 +14,7 @@ tasks:
       yes | sdk install java 8.0.332-zulu
       echo "Tathir COMMAND"
       
-  - name: Setup Android SDK
+  - name: Android SDK
     init: |
       gp env ANDROID_TOOLS_URL="https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip"
       gp env ANDROID_API_VERSION="28"
@@ -23,8 +23,9 @@ tasks:
       gp env PATH=$PATH:$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/bin
       gp env PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/platforms
       echo ">>"$ANDROID_HOME
-#      mkdir -p $ANDROID_HOME
-#      chmod -R 777 $ANDROID_HOME
+      mkdir -p $ANDROID_HOME
+      chmod -R 777 $ANDROID_HOME
+      cd $ANDROID_HOME && echo $PWD && wget $ANDROID_TOOLS_URL && unzip -q *.zip -d $ANDROID_HOME && rm *.zip && echo $PWD
 #      cd $ANDROID_HOME && echo $PWD && wget $ANDROID_TOOLS_URL && unzip -q *.zip -d $ANDROID_HOME && rm *.zip && echo $PWD
 #      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "build-tools;${ANDROID_BUILD_TOOLS}"
 #      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platforms;android-${ANDROID_API_VERSION}"
