@@ -11,7 +11,7 @@ tasks:
       sudo apt-get clean -qq
       echo "Tathir INIT"
     command: |
-      sdk install java 8.0.332-zulu
+      yes | sdk install java 8.0.332-zulu
       echo "Tathir COMMAND"
 # Ports to expose on workspace startup
 ports:
