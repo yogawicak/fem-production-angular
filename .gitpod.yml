@@ -50,10 +50,14 @@ tasks:
   
   - name: NodeJS
     init: |
-      gp env PATH="$(yarn global bin):$PATH"
-      yarn upgrade yarn@latest
+      gp env PATH="/home/gitpod/.yarn/bin:$PATH"
+      curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+      npm install -g npm@8.10.0
       yarn global add nx
-    command: nx --version
+    command: |
+      nx --version
+      
+      
       
       
 # Ports to expose on workspace startup
