@@ -50,7 +50,7 @@ tasks:
   
   - name: NodeJS
     init: |
-      gp env PATH="/home/gitpod/.yarn/bin:$PATH"
+      gp env PATH=$PATH:/home/gitpod/.yarn/bin
       curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
       npm install -g npm@8.10.0
       yarn global add nx
