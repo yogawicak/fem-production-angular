@@ -1,8 +1,19 @@
 image: gitpod/workspace-full-vnc:latest
 tasks:
-  - name: Ionic Development Platform
+  - name: Setup X11
     init: |
       sudo apt-get --quiet update --yes
+      sudo apt-get --quiet install --yes \
+      wget \
+      apt-utils \
+      tar \
+      zip \
+      unzip \
+      lib32stdc++6 \
+      lib32z1 \
+      build-essential \
+      ruby \
+      ruby-dev
       echo "Tathir"
 
 # Ports to expose on workspace startup
