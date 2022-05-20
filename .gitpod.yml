@@ -22,16 +22,16 @@ tasks:
       gp env ANDROID_HOME=/home/gitpod/android-sdk-linux
       gp env PATH=$PATH:$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/bin
       gp env PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/platforms
-    command: |
-      mkdir -p $ANDROID_HOME
-      chmod -R 777 $ANDROID_HOME
-      cd $ANDROID_HOME && echo $PWD && wget $ANDROID_TOOLS_URL && unzip -q *.zip -d $ANDROID_HOME && rm *.zip && echo $PWD
-      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "build-tools;${ANDROID_BUILD_TOOLS}"
-      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platforms;android-${ANDROID_API_VERSION}"
-      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools"
-      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "extras;android;m2repository"
-      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "extras;google;m2repository"
-      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "extras;google;google_play_services"
+      echo ">>"$ANDROID_HOME
+#      mkdir -p $ANDROID_HOME
+#      chmod -R 777 $ANDROID_HOME
+#      cd $ANDROID_HOME && echo $PWD && wget $ANDROID_TOOLS_URL && unzip -q *.zip -d $ANDROID_HOME && rm *.zip && echo $PWD
+#      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "build-tools;${ANDROID_BUILD_TOOLS}"
+#      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platforms;android-${ANDROID_API_VERSION}"
+#      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools"
+#      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "extras;android;m2repository"
+#      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "extras;google;m2repository"
+#      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "extras;google;google_play_services"
 
 # Ports to expose on workspace startup
 ports:
