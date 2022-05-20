@@ -2,6 +2,13 @@ image: gitpod/workspace-full-vnc:latest
 tasks:
   - name: Container
     init: |
+      gp env ANDROID_TOOLS_URL="https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip"
+      gp env ANDROID_API_VERSION="28"
+      gp env ANDROID_BUILD_TOOLS="28.0.0"
+      gp env ANDROID_HOME=/home/gitpod/android-sdk-linux
+      gp env PATH=$PATH:$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/bin
+      gp env PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/platforms
+      gp env PATH=$PATH:/home/gitpod/.yarn/bin
       sudo apt-get --quiet update --yes
       sudo apt-get --quiet install --yes wget apt-utils tar zip unzip lib32stdc++6 lib32z1 build-essential ruby ruby-dev
       sudo apt-get --quiet install --yes vim-common
@@ -20,12 +27,6 @@ tasks:
       
   - name: Android SDK
     init: |
-      gp env ANDROID_TOOLS_URL="https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip"
-      gp env ANDROID_API_VERSION="28"
-      gp env ANDROID_BUILD_TOOLS="28.0.0"
-      gp env ANDROID_HOME=/home/gitpod/android-sdk-linux
-      gp env PATH=$PATH:$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/bin
-      gp env PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/platforms
       echo ">>"$ANDROID_HOME
       mkdir -p $ANDROID_HOME
       chmod -R 777 $ANDROID_HOME
@@ -50,7 +51,6 @@ tasks:
   
   - name: NodeJS
     init: |
-      gp env PATH=$PATH:/home/gitpod/.yarn/bin
       curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
       npm install -g npm@8.10.0
       yarn global add nx
