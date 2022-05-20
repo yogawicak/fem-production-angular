@@ -13,6 +13,26 @@ tasks:
     command: |
       yes | sdk install java 8.0.332-zulu
       echo "Tathir COMMAND"
+      
+  - name: Setup Android SDK
+    init: |
+      export ANDROID_TOOLS_URL "https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip"
+      export ANDROID_API_VERSION "28"
+      export ANDROID_BUILD_TOOLS "28.0.0"
+      export ANDROID_HOME /home/gitpod/android-sdk-linux
+      export PATH $PATH:$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/bin
+      export PATH $PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/platforms
+      mkdir -p $ANDROID_HOME
+      chmod -R 777 $ANDROID_HOME
+      cd $ANDROID_HOME && echo $PWD && wget $ANDROID_TOOLS_URL && unzip -q *.zip -d $ANDROID_HOME && rm *.zip && echo $PWD
+      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "build-tools;${ANDROID_BUILD_TOOLS}"
+      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platforms;android-${ANDROID_API_VERSION}"
+      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools"
+      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "extras;android;m2repository"
+      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "extras;google;m2repository"
+      cd $ANDROID_HOME && yes | sdkmanager --sdk_root=$ANDROID_HOME --install "extras;google;google_play_services"
+    command: adb --version
+
 # Ports to expose on workspace startup
 ports:
   - port: 8000
