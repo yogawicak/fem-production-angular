@@ -10,3 +10,8 @@ export interface Widget extends BaseEntity {
   title: string;
   description: string;
 }
+
+export interface Catalogue extends BaseEntity {
+  nama_produk: string;
+  deskripsi: string;
+}

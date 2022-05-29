@@ -1,1 +1,1 @@
-export { Message, Widget } from './lib/api-interfaces';
+export { Message, Widget, Catalogue } from './lib/api-interfaces';

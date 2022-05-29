@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiEndpoint: 'http://localhost:3333/api/'
+  // apiEndpoint: 'http://localhost:3333/api/'
+  apiEndpoint: 'https://3333-iwahjoedi-femproduction-8tl0d1xmv5i.ws-us46.gitpod.io'
 };
 
 /*
