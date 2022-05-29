@@ -7,7 +7,7 @@ import { Catalogue } from '@fem/api-interfaces';
   providedIn: 'root',
 })
 export class CataloguesService {
-  model = 'Catalogues';
+  model = 'catalogues';
 
   constructor(private http: HttpClient) {}
 

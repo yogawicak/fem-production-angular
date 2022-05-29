@@ -9,6 +9,7 @@ export class AppComponent {
   links = [
     { path: '/', icon: 'home', title: 'home' },
     { path: '/widgets', icon: 'view_list', title: 'widgets' },
+    { path: '/catalogue', icon: 'view_list', title: 'Catalogue' },
   ];
 
   logout() {  }
